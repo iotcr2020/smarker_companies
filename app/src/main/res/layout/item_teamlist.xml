@@ -109,8 +109,7 @@
                         android:id="@+id/helmet_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_connect_off"
-                        android:visibility="gone"/>
+                        app:srcCompat="@drawable/ic_connect_off" />
 
                     <View
                         android:id="@+id/view11"
