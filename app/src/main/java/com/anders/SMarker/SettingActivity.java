@@ -30,7 +30,7 @@ public class SettingActivity extends AppCompatActivity {
 
     int str_time_set, str_battery_set, str_sensing_set = 0;
     int helmet_time_set,helmet_battery_set = 0;
-    int helmet_acl_set, str_acl_set = 4;
+    int helmet_acl_set, str_acl_set = 3;
     int etc_time_set, etc_receiver_set = 0;
 
     SharedPreferences auto;
@@ -356,28 +356,18 @@ public class SettingActivity extends AppCompatActivity {
                     byte[] msg = new byte[2];
                     msg[0] = 0x41;
 
-                    if (i == 1) {
+                    if (i == 0) {
                         msg[1] = 0x01;
-                    } else if (i == 2) {
+                    } else if (i == 1) {
                         msg[1] = 0x02;
-                    } else if (i == 3) {
+                    } else if (i == 2) {
                         msg[1] = 0x03;
-                    } else if (i == 4) {
+                    } else if (i == 3) {
                         msg[1] = 0x04;
-                    } else if (i == 5) {
+                    } else if (i == 4) {
                         msg[1] = 0x05;
-                    } else if (i == 6) {
+                    } else if (i == 5) {
                         msg[1] = 0x06;
-                    } else if (i == 7) {
-                        msg[1] = 0x07;
-                    } else if (i == 8) {
-                        msg[1] = 0x08;
-                    } else if (i == 9) {
-                        msg[1] = 0x09;
-                    } else if (i == 10) {
-                        msg[1] = 0x0a;
-                    } else if (i == 11) {
-                        msg[1] = 0x0b;
                     }
 
                     BleService.instance.sendConfigAclStrip(msg);
