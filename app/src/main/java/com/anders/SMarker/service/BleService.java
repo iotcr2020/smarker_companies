@@ -346,7 +346,7 @@ public class BleService extends Service {
 
         SharedPreferences auto;
         auto = getSharedPreferences("setting", Activity.MODE_PRIVATE);
-        int acl_value = auto.getInt("str_acl", 0);
+        int acl_value = auto.getInt("str_acl", 3);
 
         byte[] msg = new byte[2];
         msg[0] = 0x41;
