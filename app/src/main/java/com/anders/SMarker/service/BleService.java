@@ -351,15 +351,18 @@ public class BleService extends Service {
         byte[] msg = new byte[2];
         msg[0] = 0x41;
 
-        if(0 == acl_value){
-            //낮음
-            msg[1] = 0x0b;
-        }else if(1 == acl_value){
-            //중간
-            msg[1] = 0x09;
-        }else if(2 == acl_value){
-            //높음
+        if (acl_value == 0) {
+            msg[1] = 0x01;
+        } else if (acl_value == 1) {
+            msg[1] = 0x02;
+        } else if (acl_value == 2) {
+            msg[1] = 0x03;
+        } else if (acl_value == 3) {
+            msg[1] = 0x04;
+        } else if (acl_value == 4) {
             msg[1] = 0x05;
+        } else if (acl_value == 5) {
+            msg[1] = 0x06;
         }
 
         sendConfigAclStrip(msg);
