@@ -149,7 +149,7 @@ public class BleService extends Service {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if(AppVariables.helmetDevice !=null) {
 
-                    mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE, BluetoothDevice.PHY_LE_1M);
+                    //mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE, BluetoothDevice.PHY_LE_1M);
                 }
                 if(AppVariables.stripDevice != null) {
                     mBluetoothGattStrip = AppVariables.stripDevice.connectGatt(BleService.this, false, mGattCallbackStrip, BluetoothDevice.TRANSPORT_LE, BluetoothDevice.PHY_LE_1M);
@@ -158,7 +158,7 @@ public class BleService extends Service {
             else {
                 if(AppVariables.helmetDevice !=null) {
 
-                    mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE);
+                    //mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE);
                 }
                 if(AppVariables.stripDevice != null) {
                     mBluetoothGattStrip = AppVariables.stripDevice.connectGatt(BleService.this, false, mGattCallbackStrip, BluetoothDevice.TRANSPORT_LE);
@@ -240,7 +240,7 @@ public class BleService extends Service {
                 {
                     try {
                         //anders
-                        Thread.sleep(1000 * 50 ); // 1 minute
+                        Thread.sleep(1000 * 5 ); // 1 minute
                         if( bExeThread) {
                             if (mConnectionStateStrip == STATE_DISCONNECTED || mConnectionStateHelmet == STATE_DISCONNECTED) {
                                 if (mBluetoothAdapter != null) {
@@ -323,10 +323,10 @@ public class BleService extends Service {
                             mBluetoothAdapter.cancelDiscovery();
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE, BluetoothDevice.PHY_LE_1M);
+                                //mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE, BluetoothDevice.PHY_LE_1M);
                             }
                             else {
-                                mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE);
+                                //mBluetoothGattHelmet = AppVariables.helmetDevice.connectGatt(BleService.this, false, mGattCallbackHelmet, BluetoothDevice.TRANSPORT_LE);
                             }
                         }
                     }

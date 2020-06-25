@@ -299,7 +299,7 @@ public class AlertDialog extends AppCompatActivity {
                 }
             }
             if ( bool_check ) {
-                showAlarmDialog(getApplicationContext(), sGubun); //권한 허용 시 비상 알림 띄우기
+                showAlarmDialog(getApplicationContext(), gubn); //권한 허용 시 비상 알림 띄우기
                 //위치 값을 가져올 수 있음
             }
             else {
