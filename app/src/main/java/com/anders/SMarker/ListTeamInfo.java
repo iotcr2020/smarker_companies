@@ -317,7 +317,7 @@ public class ListTeamInfo extends AppCompatActivity {
         ContentValues addData = new ContentValues();
         addData.put("phoneNB", AppVariables.User_Phone_Number);
         addData.put("serverURL", NetworkTask.API_SERVER_ADRESS);
-        NetworkTask networkTask = new NetworkTask(NetworkTask.API_TEAM_LIST2, addData);
+        NetworkTask networkTask = new NetworkTask(NetworkTask.API_TEAM_LIST, addData);
 
         try {
             String result =  networkTask.execute().get();

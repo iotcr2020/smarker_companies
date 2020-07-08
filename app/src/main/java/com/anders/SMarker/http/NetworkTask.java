@@ -7,7 +7,29 @@ import android.util.Log;
 import com.anders.SMarker.http.RequestHttpURLConnection;
 
 public class NetworkTask extends AsyncTask<Void, Void, String> {
-    //public static final String API_SERVER_ADRESS ="http://211.233.58.32:80";
+    public static String API_SERVER_ADRESS ="http://52.78.198.132:8080/ktsmarkerapi";
+    public static String API_CHECK_AGREE = API_SERVER_ADRESS + "/agreecheck";
+    public static String API_UPDATE_AGREE = API_SERVER_ADRESS + "/agree";
+    public static String API_CHECK_PHONE_NUMBER = API_SERVER_ADRESS + "/phone";
+    public static String API_FCM_HPSET = API_SERVER_ADRESS + "/fcm";
+    public static String API_LOG_OFF = API_SERVER_ADRESS + "/logout";
+    public static String API_MAIN_ALERT_RECEIVE = API_SERVER_ADRESS + "/mainmessage";
+    public static String API_UPDATE_USER_STRIP_MAC =API_SERVER_ADRESS + "/stripmac";
+    public static String API_UPDATE_USER_Helmet_MAC =API_SERVER_ADRESS + "/helmetmac";
+    public static String API_INSERT_STRIP_STATE = API_SERVER_ADRESS + "/stripstate";
+    public static String API_UPDATE_START_WORK = API_SERVER_ADRESS + "/startwork";
+    public static String API_UPDATE_STOP_WORK = API_SERVER_ADRESS + "/stopwork";
+    public static String API_MESSAGE_RECEIVE_LIST = API_SERVER_ADRESS + "/messagereceivelist";
+    public static String API_MESSAGE_SEND_LIST = API_SERVER_ADRESS + "/messagesendlist";
+    public static String API_MESSAGE_READ_CHK = API_SERVER_ADRESS + "/messagereadchk";
+    public static String API_ADMIN_ACTION_SEND = API_SERVER_ADRESS + "/adminaction";
+    public static String API_UPDATE_DUST_VALUE = API_SERVER_ADRESS + "/dust";
+    public static String API_TEAM_LIST = API_SERVER_ADRESS + "/userlist";
+    public static String API_ALARM_SEND = API_SERVER_ADRESS +"/useralarm";
+    public static String API_ADMIN_ALARM_SEND = API_SERVER_ADRESS +"/adminalarm";
+    public static String API_IMAGE_UPLOAD_SERVER= API_SERVER_ADRESS + "/photoupload";
+
+    /*public static final String API_SERVER_ADRESS ="http://211.233.58.32:80";
     public static String API_SERVER_ADRESS ="https://ktsmarker.co.kr/ktssouth";
     public static String API_CHECK_PHONE_NUMBER = API_SERVER_ADRESS + "/api/check_phone_number.php"  ;
     public static String API_CHECK_AGREE = API_SERVER_ADRESS + "/api/select_use_agree.php";
@@ -31,7 +53,7 @@ public class NetworkTask extends AsyncTask<Void, Void, String> {
     public static String API_MAIN_ALERT_RECEIVE = API_SERVER_ADRESS + "/api/message_receive_main.php";
     public static String API_INSERT_STRIP_STATE = API_SERVER_ADRESS + "/api/InsertStripState.php";
     public static String API_ADMIN_ACTION_SEND = API_SERVER_ADRESS + "/api/Admin_Action_Send.php";
-    public static String API_LOG_OFF = API_SERVER_ADRESS + "/api/LogOff.php";
+    public static String API_LOG_OFF = API_SERVER_ADRESS + "/api/LogOff.php";*/
 
     public static final String API_OPENWEATHER_KEY ="db1f92d4b15d1b1fe4f6b55dfe7b8f65";
 

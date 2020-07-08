@@ -240,12 +240,19 @@ public class SplashActivity extends Activity {
             String[] resultBuilder = null;
             ContentValues addData = new ContentValues();
             addData.put("phoneNB", AppVariables.User_Phone_Number);
-            String[] serverAddress = {"https://ktsmarker.co.kr/ktssouth",
+            /*String[] serverAddress = {"https://ktsmarker.co.kr/ktssouth",
                     "https://smarker.co.kr/ktsnorth",
                     "https://smarker.co.kr/ktmsouth",
                     "https://smarker.co.kr/ktmnorth",
                     "https://smarker.co.kr/ktssp",
-                    "https://smarker.co.kr/ktsnp"};
+                    "https://smarker.co.kr/ktsnp"};*/
+            String[] serverAddress = {"http://52.78.198.132:8080/ktsmarkerapi",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktssouth",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktsnorth",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktmsouth",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktmnorth",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktssp",
+                    "http://52.78.198.132:8080/ktsmarkerapi/ktsnp"};
             String connFl = "n";
 
             Log.i("-----------휴대폰번호----------->", AppVariables.User_Phone_Number);
@@ -253,29 +260,26 @@ public class SplashActivity extends Activity {
             try {
                 for (int i = 0; i < serverAddress.length; i++) {
                     NetworkTask.API_SERVER_ADRESS = serverAddress[i];
-                    NetworkTask.API_CHECK_PHONE_NUMBER = NetworkTask.API_SERVER_ADRESS + "/api/check_phone_number.php"  ;
-                    NetworkTask.API_CHECK_AGREE = NetworkTask.API_SERVER_ADRESS + "/api/select_use_agree.php";
-                    NetworkTask.API_UPDATE_AGREE = NetworkTask.API_SERVER_ADRESS + "/api/update_use_agree.php";
-                    NetworkTask.API_TEAM_LIST = NetworkTask.API_SERVER_ADRESS + "/api/select_team_list.php";
-                    NetworkTask.API_TEAM_LIST2 = NetworkTask.API_SERVER_ADRESS + "/api/select_team_list.php";
-                    NetworkTask.API_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/api/user_team_alarm.php";
-                    NetworkTask.API_FCM_HPSET = NetworkTask.API_SERVER_ADRESS +"/api/user_hp_token.php";
-                    NetworkTask.API_ADMIN_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/api/admin_team_alarm.php";
-                    NetworkTask.API_MESSAGE_RECEIVE_LIST = NetworkTask.API_SERVER_ADRESS+"/api/message_receive.php";
-                    NetworkTask.API_MESSAGE_SEND_LIST = NetworkTask.API_SERVER_ADRESS+"/api/message_send.php";
-                    NetworkTask.API_MESSAGE_READ_CHK = NetworkTask.API_SERVER_ADRESS+"/api/message_read_chk.php";
-                    NetworkTask.API_MESSAGE_RECEIVE_INSERT = NetworkTask.API_SERVER_ADRESS+"/api/db_message_receive.php";
-                    NetworkTask.API_IMAGE_UPLOAD_SERVER= NetworkTask.API_SERVER_ADRESS + "/user_images/UploadToServer.php";
-                    NetworkTask.API_IMAGE_DELETE_SERVER = NetworkTask.API_SERVER_ADRESS + "/user_images/UploadToServerRemove.php";
-                    NetworkTask.API_UPDATE_USER_STRIP_MAC = NetworkTask.API_SERVER_ADRESS + "/api/UpdateUserStripMac.php";
-                    NetworkTask.API_UPDATE_USER_Helmet_MAC = NetworkTask.API_SERVER_ADRESS + "/api/UpdateUserHelmetMac.php";
-                    NetworkTask.API_UPDATE_START_WORK = NetworkTask.API_SERVER_ADRESS + "/api/update_Start_Work.php";
-                    NetworkTask.API_UPDATE_STOP_WORK = NetworkTask.API_SERVER_ADRESS + "/api/update_Stop_Work.php";
-                    NetworkTask.API_UPDATE_DUST_VALUE = NetworkTask.API_SERVER_ADRESS + "/api/Update_Dust_Value.php";
-                    NetworkTask.API_MAIN_ALERT_RECEIVE = NetworkTask.API_SERVER_ADRESS + "/api/message_receive_main.php";
-                    NetworkTask.API_INSERT_STRIP_STATE = NetworkTask.API_SERVER_ADRESS + "/api/InsertStripState.php";
-                    NetworkTask.API_ADMIN_ACTION_SEND = NetworkTask.API_SERVER_ADRESS + "/api/Admin_Action_Send.php";
-                    NetworkTask.API_LOG_OFF = NetworkTask.API_SERVER_ADRESS + "/api/LogOff.php";
+                    NetworkTask.API_CHECK_AGREE = NetworkTask.API_SERVER_ADRESS + "/agreecheck";
+                    NetworkTask.API_UPDATE_AGREE = NetworkTask.API_SERVER_ADRESS + "/agree";
+                    NetworkTask.API_CHECK_PHONE_NUMBER = NetworkTask.API_SERVER_ADRESS + "/phone";
+                    NetworkTask.API_FCM_HPSET = NetworkTask.API_SERVER_ADRESS + "/fcm";
+                    NetworkTask.API_LOG_OFF = NetworkTask.API_SERVER_ADRESS + "/logout";
+                    NetworkTask.API_MAIN_ALERT_RECEIVE = NetworkTask.API_SERVER_ADRESS + "/mainmessage";
+                    NetworkTask.API_UPDATE_USER_STRIP_MAC = NetworkTask.API_SERVER_ADRESS + "/stripmac";
+                    NetworkTask.API_UPDATE_USER_Helmet_MAC = NetworkTask.API_SERVER_ADRESS + "/helmetmac";
+                    NetworkTask.API_INSERT_STRIP_STATE = NetworkTask.API_SERVER_ADRESS + "/stripstate";
+                    NetworkTask.API_UPDATE_START_WORK = NetworkTask.API_SERVER_ADRESS + "/startwork";
+                    NetworkTask.API_UPDATE_STOP_WORK = NetworkTask.API_SERVER_ADRESS + "/stopwork";
+                    NetworkTask.API_MESSAGE_RECEIVE_LIST = NetworkTask.API_SERVER_ADRESS + "/messagereceiv";
+                    NetworkTask.API_MESSAGE_SEND_LIST = NetworkTask.API_SERVER_ADRESS + "/messagesendlist";
+                    NetworkTask.API_MESSAGE_READ_CHK = NetworkTask.API_SERVER_ADRESS + "/messagereadchk";
+                    NetworkTask.API_ADMIN_ACTION_SEND = NetworkTask.API_SERVER_ADRESS + "/adminaction";
+                    NetworkTask.API_UPDATE_DUST_VALUE = NetworkTask.API_SERVER_ADRESS + "/dust";
+                    NetworkTask.API_TEAM_LIST = NetworkTask.API_SERVER_ADRESS + "/userlist";
+                    NetworkTask.API_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/useralarm";
+                    NetworkTask.API_ADMIN_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/adminalarm";
+                    NetworkTask.API_IMAGE_UPLOAD_SERVER= NetworkTask.API_SERVER_ADRESS + "/photoupload";
 
                     NetworkTask networkTask = new NetworkTask(NetworkTask.API_CHECK_AGREE, addData);
                     String result = networkTask.execute().get();

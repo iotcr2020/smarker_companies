@@ -571,8 +571,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
     //사진 서버 업로드
     private int imageUpload(final String fileName) {
-        String urlString = NetworkTask.API_IMAGE_UPLOAD_SERVER ;
-         HttpURLConnection conn = null;
+        String urlString = NetworkTask.API_IMAGE_UPLOAD_SERVER + "/" + AppVariables.User_Idx;
+        HttpURLConnection conn = null;
         DataOutputStream dos = null;
         String lineEnd = "\r\n";
         String twoHyphens = "--";
@@ -594,16 +594,9 @@ public class UserInfoActivity extends AppCompatActivity {
         {
 
             try {
-                //폴더 사진 지우기
-                NetworkTask networkTask = new NetworkTask(NetworkTask.API_IMAGE_DELETE_SERVER,null);
-                networkTask.execute();
-
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
                 URL url = new URL(urlString);
-              // Open a HTTP  connection to  the URL
-
                 conn = (HttpURLConnection) url.openConnection();
-
                 conn.setDoInput(true); // Allow Inputs
 
                 conn.setDoOutput(true); // Allow Outputs
