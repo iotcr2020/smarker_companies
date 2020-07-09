@@ -28,6 +28,8 @@ public class NetworkTask extends AsyncTask<Void, Void, String> {
     public static String API_ALARM_SEND = API_SERVER_ADRESS +"/useralarm";
     public static String API_ADMIN_ALARM_SEND = API_SERVER_ADRESS +"/adminalarm";
     public static String API_IMAGE_UPLOAD_SERVER= API_SERVER_ADRESS + "/photoupload";
+    public static String API_GET_WORK_FL= API_SERVER_ADRESS + "/getworkfl";
+    public static String API_WORK_FL= API_SERVER_ADRESS + "/workfl";
 
     /*public static final String API_SERVER_ADRESS ="http://211.233.58.32:80";
     public static String API_SERVER_ADRESS ="https://ktsmarker.co.kr/ktssouth";

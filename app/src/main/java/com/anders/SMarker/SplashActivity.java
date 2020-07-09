@@ -279,7 +279,9 @@ public class SplashActivity extends Activity {
                     NetworkTask.API_TEAM_LIST = NetworkTask.API_SERVER_ADRESS + "/userlist";
                     NetworkTask.API_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/useralarm";
                     NetworkTask.API_ADMIN_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/adminalarm";
-                    NetworkTask.API_IMAGE_UPLOAD_SERVER= NetworkTask.API_SERVER_ADRESS + "/photoupload";
+                    NetworkTask.API_IMAGE_UPLOAD_SERVER = NetworkTask.API_SERVER_ADRESS + "/photoupload";
+                    NetworkTask.API_GET_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/getworkfl";
+                    NetworkTask.API_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/workfl";
 
                     NetworkTask networkTask = new NetworkTask(NetworkTask.API_CHECK_AGREE, addData);
                     String result = networkTask.execute().get();
