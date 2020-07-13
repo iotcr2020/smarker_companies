@@ -246,7 +246,7 @@ public class SplashActivity extends Activity {
                     "https://smarker.co.kr/ktmnorth",
                     "https://smarker.co.kr/ktssp",
                     "https://smarker.co.kr/ktsnp"};*/
-            String[] serverAddress = {"http://52.78.198.132:8080/ktsmarkerapi",
+            String[] serverAddress = {"http://52.78.198.132:8080/companiessmarkerapi",
                     "http://52.78.198.132:8080/ktsmarkerapi/ktssouth",
                     "http://52.78.198.132:8080/ktsmarkerapi/ktsnorth",
                     "http://52.78.198.132:8080/ktsmarkerapi/ktmsouth",
