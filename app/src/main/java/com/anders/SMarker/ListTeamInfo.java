@@ -321,7 +321,7 @@ public class ListTeamInfo extends AppCompatActivity {
 
         try {
             String result =  networkTask.execute().get();
-            if(!result.isEmpty()){
+            if(result != null && !result.isEmpty()){
                 mJsonString = result;
             }else{
 
