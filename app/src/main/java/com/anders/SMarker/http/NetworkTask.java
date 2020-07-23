@@ -7,7 +7,7 @@ import android.util.Log;
 import com.anders.SMarker.http.RequestHttpURLConnection;
 
 public class NetworkTask extends AsyncTask<Void, Void, String> {
-    public static String API_SERVER_ADRESS ="http://52.78.198.132:8080/companiessmarkerapi";
+    public static String API_SERVER_ADRESS ="https://www.ktsmarker.co.kr/ktssouthapi";
     public static String API_CHECK_AGREE = API_SERVER_ADRESS + "/agreecheck";
     public static String API_UPDATE_AGREE = API_SERVER_ADRESS + "/agree";
     public static String API_CHECK_PHONE_NUMBER = API_SERVER_ADRESS + "/phone";

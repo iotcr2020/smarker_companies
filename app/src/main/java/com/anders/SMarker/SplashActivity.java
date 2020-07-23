@@ -240,19 +240,13 @@ public class SplashActivity extends Activity {
             String[] resultBuilder = null;
             ContentValues addData = new ContentValues();
             addData.put("phoneNB", AppVariables.User_Phone_Number);
-            /*String[] serverAddress = {"https://ktsmarker.co.kr/ktssouth",
-                    "https://smarker.co.kr/ktsnorth",
-                    "https://smarker.co.kr/ktmsouth",
-                    "https://smarker.co.kr/ktmnorth",
-                    "https://smarker.co.kr/ktssp",
-                    "https://smarker.co.kr/ktsnp"};*/
-            String[] serverAddress = {"http://52.78.198.132:8080/companiessmarkerapi",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktssouth",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktsnorth",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktmsouth",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktmnorth",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktssp",
-                    "http://52.78.198.132:8080/ktsmarkerapi/ktsnp"};
+            String[] serverAddress = {"https://www.ktsmarker.co.kr/ktssouthapi",
+                    "https://www.smarker.co.kr/ktsnorthapi",
+                    "https://www.smarker.co.kr/ktmsouthapi",
+                    "https://www.smarker.co.kr/ktmnorthapi",
+                    "https://www.smarker.co.kr/ktsspapi",
+                    "https://www.smarker.co.kr/ktsnpapi",
+                    "https://www.smarker.co.kr/ktslapi"};
             String connFl = "n";
 
             Log.i("-----------휴대폰번호----------->", AppVariables.User_Phone_Number);
@@ -271,7 +265,7 @@ public class SplashActivity extends Activity {
                     NetworkTask.API_INSERT_STRIP_STATE = NetworkTask.API_SERVER_ADRESS + "/stripstate";
                     NetworkTask.API_UPDATE_START_WORK = NetworkTask.API_SERVER_ADRESS + "/startwork";
                     NetworkTask.API_UPDATE_STOP_WORK = NetworkTask.API_SERVER_ADRESS + "/stopwork";
-                    NetworkTask.API_MESSAGE_RECEIVE_LIST = NetworkTask.API_SERVER_ADRESS + "/messagereceiv";
+                    NetworkTask.API_MESSAGE_RECEIVE_LIST = NetworkTask.API_SERVER_ADRESS + "/messagereceivelist";
                     NetworkTask.API_MESSAGE_SEND_LIST = NetworkTask.API_SERVER_ADRESS + "/messagesendlist";
                     NetworkTask.API_MESSAGE_READ_CHK = NetworkTask.API_SERVER_ADRESS + "/messagereadchk";
                     NetworkTask.API_ADMIN_ACTION_SEND = NetworkTask.API_SERVER_ADRESS + "/adminaction";
