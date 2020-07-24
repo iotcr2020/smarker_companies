@@ -246,7 +246,8 @@ public class SplashActivity extends Activity {
                     "https://www.smarker.co.kr/ktmnorthapi",
                     "https://www.smarker.co.kr/ktsspapi",
                     "https://www.smarker.co.kr/ktsnpapi",
-                    "https://www.smarker.co.kr/ktslapi"};
+                    "https://www.smarker.co.kr/ktslapi",
+                    "https://www.smarker.co.kr/ktpapi"};
             String connFl = "n";
 
             Log.i("-----------휴대폰번호----------->", AppVariables.User_Phone_Number);
