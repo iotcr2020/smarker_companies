@@ -1327,11 +1327,10 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                BleService.isForeground = false;
-                stopService(gattServiceIntent);
                 sendToServerExit();
-                finish();
-                System.exit(0);
+                moveTaskToBack(true);
+                finishAndRemoveTask();
+                android.os.Process.killProcess(android.os.Process.myPid());
             }
         });
         builder.setNegativeButton("취소", null);

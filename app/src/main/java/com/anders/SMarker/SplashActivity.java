@@ -272,6 +272,7 @@ public class SplashActivity extends Activity {
                     NetworkTask.API_ADMIN_ACTION_SEND = NetworkTask.API_SERVER_ADRESS + "/adminaction";
                     NetworkTask.API_UPDATE_DUST_VALUE = NetworkTask.API_SERVER_ADRESS + "/dust";
                     NetworkTask.API_TEAM_LIST = NetworkTask.API_SERVER_ADRESS + "/userlist";
+                    NetworkTask.API_TEAM_LIST_PAGE = NetworkTask.API_SERVER_ADRESS + "/userlistpage";
                     NetworkTask.API_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/useralarm";
                     NetworkTask.API_ADMIN_ALARM_SEND = NetworkTask.API_SERVER_ADRESS +"/adminalarm";
                     NetworkTask.API_IMAGE_UPLOAD_SERVER = NetworkTask.API_SERVER_ADRESS + "/photoupload";

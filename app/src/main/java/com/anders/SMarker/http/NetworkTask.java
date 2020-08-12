@@ -25,6 +25,7 @@ public class NetworkTask extends AsyncTask<Void, Void, String> {
     public static String API_ADMIN_ACTION_SEND = API_SERVER_ADRESS + "/adminaction";
     public static String API_UPDATE_DUST_VALUE = API_SERVER_ADRESS + "/dust";
     public static String API_TEAM_LIST = API_SERVER_ADRESS + "/userlist";
+    public static String API_TEAM_LIST_PAGE = API_SERVER_ADRESS + "/userlistpage";
     public static String API_ALARM_SEND = API_SERVER_ADRESS +"/useralarm";
     public static String API_ADMIN_ALARM_SEND = API_SERVER_ADRESS +"/adminalarm";
     public static String API_IMAGE_UPLOAD_SERVER= API_SERVER_ADRESS + "/photoupload";
