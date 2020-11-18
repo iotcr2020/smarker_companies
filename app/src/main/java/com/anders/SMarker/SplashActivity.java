@@ -16,8 +16,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.AppCompatButton;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatButton;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -278,6 +278,7 @@ public class SplashActivity extends Activity {
                     NetworkTask.API_IMAGE_UPLOAD_SERVER = NetworkTask.API_SERVER_ADRESS + "/photoupload";
                     NetworkTask.API_GET_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/getworkfl";
                     NetworkTask.API_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/workfl";
+                    NetworkTask.API_BATTERY_INFO = NetworkTask.API_SERVER_ADRESS + "/battery";
 
                     NetworkTask networkTask = new NetworkTask(NetworkTask.API_CHECK_AGREE, addData);
                     String result = networkTask.execute().get();

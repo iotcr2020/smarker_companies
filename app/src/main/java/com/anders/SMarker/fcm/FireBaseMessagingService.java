@@ -13,17 +13,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.PowerManager;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
-import com.anders.SMarker.ConnectActivity;
 import com.anders.SMarker.R;
 import com.anders.SMarker.http.NetworkTask;
 import com.anders.SMarker.utils.AppVariables;
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.pchmn.materialchips.R2;
 
 import java.util.List;
 import java.util.Map;

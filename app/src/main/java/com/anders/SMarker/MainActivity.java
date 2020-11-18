@@ -27,17 +27,17 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.SystemClock;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -62,7 +62,6 @@ import com.anders.SMarker.service.GpsTracker;
 import com.anders.SMarker.utils.AlarmDlg;
 import com.anders.SMarker.utils.AppVariables;
 import com.anders.SMarker.utils.BottomNavigationViewHelper;
-import com.anders.SMarker.utils.ServiceUtils;
 import com.anders.SMarker.utils.SoundManager;
 import com.anders.SMarker.utils.Tools;
 import com.anders.SMarker.utils.WeakHandler;
@@ -430,6 +429,24 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
                     if (AppVariables.iStripBatteryAmmountFlag == -1) {
                         batteryAlarm(AppVariables.iStripBatteryAmmount, "strip");
                     }
+
+                    if (AppVariables.iStripBatteryAmmount >= 0 && AppVariables.iStripBatteryAmmount <= 100) {
+                    } else {
+                        AppVariables.iStripBatteryAmmount = 0;
+                    }
+                    try {
+                        ContentValues addData = new ContentValues();
+                        addData.put("USER_IDX", Integer.parseInt(AppVariables.User_Idx));
+                        addData.put("battery", AppVariables.iStripBatteryAmmount);
+                        NetworkTask networkTask = new NetworkTask(NetworkTask.API_BATTERY_INFO, addData);
+                        String result =  networkTask.execute().get();
+                        if (result != null && !result.isEmpty()) {
+                            receiveString = result;
+                        } else { }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                 } else {
                     imgStripBattery.setImageDrawable(getResources().getDrawable(R.drawable.not_connect));
                     txtStripBattery.setVisibility(View.GONE);
@@ -1215,7 +1232,7 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
         alertrecyclerview.addItemDecoration(new LineItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
         alertrecyclerview.setHasFixedSize(true);
 
-        LinearLayoutManager Im = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager Im = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         alertrecyclerview.setLayoutManager(Im);
 
         int non_read_cnt=0;
