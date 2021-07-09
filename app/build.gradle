@@ -7,8 +7,8 @@ android {
         applicationId "com.anders.SMarker"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode 125
-        versionName "3.30"
+        versionCode 127
+        versionName "3.40"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
@@ -74,10 +74,11 @@ dependencies {
     implementation "gun0912.ted:tedpermission:2.2.3"
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
 
-
     //fcm
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.google.firebase:firebase-core:16.0.4'
+
+    implementation 'com.alibaba:fastjson:1.1.72.android'
 
 }
 apply plugin: 'com.google.gms.google-services'

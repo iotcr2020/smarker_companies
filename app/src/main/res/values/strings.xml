@@ -37,4 +37,7 @@
     <string name="dialogAlaram3">팀원</string>
 
     <string name="send_message">전송</string>
+
+    <string name="tag1">0</string>
+    <string name="tag2">1</string>
 </resources>

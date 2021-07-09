@@ -279,6 +279,7 @@ public class SplashActivity extends Activity {
                     NetworkTask.API_GET_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/getworkfl";
                     NetworkTask.API_WORK_FL = NetworkTask.API_SERVER_ADRESS + "/workfl";
                     NetworkTask.API_BATTERY_INFO = NetworkTask.API_SERVER_ADRESS + "/battery";
+                    NetworkTask.API_TEAM_TREE = NetworkTask.API_SERVER_ADRESS + "/teamlist";
 
                     NetworkTask networkTask = new NetworkTask(NetworkTask.API_CHECK_AGREE, addData);
                     String result = networkTask.execute().get();

@@ -43,7 +43,7 @@ import java.util.TimerTask;
 
 
 public class BleService extends Service {
-
+    public static NotificationCompat.Builder notificationBuilder;
     public static BleService instance;
     public static int mainChkMode = 0;
     public static int mainsMode = 0;
@@ -676,7 +676,7 @@ public class BleService extends Service {
                         sendMessageUpdateUI(AppVariables.EXTRA_SERVICE_EMERGENCY_OFF_STRIP, "0x0000");
                     }
                 }else{
-                    if(readByte[0]== (byte)0xA1){
+                    if(readByte[0]== (byte)0xA1 && !"0".equals(AppVariables.sStripApplyMode)){
                         myLog("shet==> 턱끈 긴급상황 발생");
                         AlertDialogShow("Y","장비");
                     }
@@ -953,7 +953,7 @@ public class BleService extends Service {
         assert manager != null;
         manager.createNotificationChannel(chan);
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+        notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         Notification notification = notificationBuilder.setOngoing(true)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(getString(R.string.app_name))

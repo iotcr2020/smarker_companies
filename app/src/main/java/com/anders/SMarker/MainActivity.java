@@ -3,6 +3,7 @@ package com.anders.SMarker;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -38,6 +39,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -91,7 +94,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements DialogInterface.OnDismissListener{
-
+    int NOTI_ID = 1653422;
     private ImageView imgFamilyPhoto;
     private LinearLayout warninglyo;
     private RecyclerView alertrecyclerview;
@@ -136,6 +139,9 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
     private boolean isService = false;
 
     public static BottomNavigationView navigation;
+
+    String stripText = "<font color='#EF5350'>미착용</font>";
+    String batterryText = "미접속";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -341,6 +347,8 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
             SharedPreferences sharedPreferences = getSharedPreferences("setting", Activity.MODE_PRIVATE);
             double stripVolume = (sharedPreferences.getInt("str_volume", 0) + 1) * 0.2;
 
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+
             if( smode != null){
                 Log.i("최종 턱끈 착용===>", smode);
 
@@ -348,27 +356,36 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
                    if (smode.equals("1") || smode.equals("2") || smode.equals("3")) {
                         imgStripTop.setImageDrawable(getResources().getDrawable(R.drawable.circle_top));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom));
+                        stripText = "<font color='#2cbbb6'>착용중</font>";
                     } else {
                         imgStripTop.setImageDrawable(getResources().getDrawable( R.drawable.circle_top_off));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom_off));
                         imgStripBottom.setImageResource(R.drawable.circle_bottom_off);
+                        stripText = "<font color='#EF5350'>미착용</font>";
                     }
                 } else {
                     if(smode.equals("1")) {
                         imgStripTop.setImageDrawable(getResources().getDrawable(R.drawable.circle_top));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom_off));
+                        stripText = "<font color='#2cbbb6'>착용중</font>";
                     }else if(smode.equals("2")){
                         imgStripTop.setImageDrawable(getResources().getDrawable(R.drawable.circle_top_off));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom));
+                        stripText = "<font color='#2cbbb6'>착용중</font>";
                     }else if(smode.equals("3")){
                         imgStripTop.setImageDrawable(getResources().getDrawable(R.drawable.circle_top));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom));
+                        stripText = "<font color='#2cbbb6'>착용중</font>";
                     }else{
                         imgStripTop.setImageDrawable(getResources().getDrawable( R.drawable.circle_top_off));
                         imgStripBottom.setImageDrawable(getResources().getDrawable(R.drawable.circle_bottom_off));
                         imgStripBottom.setImageResource(R.drawable.circle_bottom_off);
+                        stripText = "<font color='#EF5350'>미착용</font>";
                     }
                 }
+
+                BleService.notificationBuilder.setSubText(Html.fromHtml(batterryText + "&nbsp;&nbsp;" + stripText));
+                notificationManager.notify(NOTI_ID, BleService.notificationBuilder.build());
             }
 
             if (!TextUtils.isEmpty(smode)) {
@@ -406,6 +423,8 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
             mBleService.bExeThread = false;
             String action = intent.getAction();
 
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+
             if (AppVariables.EXTRA_SERVICE_BATTERY_INFO_STRIP.equals(intent.getStringExtra("action"))
                 || "com.anders.SMarker.ACTION_GATT_DISCONNECTED,STRIP".equals(intent.getStringExtra("action"))) {
                 String sStripBattery = intent.getStringExtra(AppVariables.EXTRA_SERVICE_BATTERY_INFO_STRIP);
@@ -425,6 +444,10 @@ public class MainActivity extends AppCompatActivity implements DialogInterface.O
                     }
                     Button_Find_Strip.setVisibility(View.VISIBLE);
                     Log.i("최종 턱끈 배터리===>", Integer.toString(AppVariables.iStripBatteryAmmount));
+
+                    batterryText = Integer.toString(AppVariables.iStripBatteryAmmount) + "%";
+                    BleService.notificationBuilder.setSubText(Html.fromHtml(batterryText + "&nbsp;&nbsp;" + stripText));
+                    notificationManager.notify(NOTI_ID, BleService.notificationBuilder.build());
 
                     if (AppVariables.iStripBatteryAmmountFlag == -1) {
                         batteryAlarm(AppVariables.iStripBatteryAmmount, "strip");
